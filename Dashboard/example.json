@@ -70,7 +70,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1645625428212,
+  "iteration": 1645642553900,
   "links": [],
   "panels": [
     {
@@ -202,6 +202,7 @@
       "pluginVersion": "7.5.9",
       "targets": [
         {
+          "exemplar": true,
           "expr": "jvm_info{instance=\"$node\",job=\"$job\"}",
           "format": "time_series",
           "instant": true,
@@ -1338,7 +1339,7 @@
         {
           "exemplar": true,
           "expr": "tomcat_threads_max{instance=\"$node\",job=\"$job\"}",
-          "hide": false,
+          "hide": true,
           "interval": "",
           "legendFormat": "max {{name}}",
           "refId": "C"
@@ -4362,6 +4363,162 @@
       "type": "stat"
     },
     {
+      "datasource": null,
+      "description": "Percentage of total JDBC Connections used of Max limit. maxActive/maxTotal",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 18,
+        "x": 0,
+        "y": 215
+      },
+      "id": 96,
+      "options": {
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "7.5.9",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "tomcat_jdbc_connections_total{instance=\"$node\",job=\"$job\"}/tomcat_jdbc_connections_max{instance=\"$node\",job=\"$job\"}",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{pool}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Tomcat JDBC Connections of Max",
+      "type": "gauge"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "description": "Percentage of total JDBC Connections used of Max limit. maxActive/maxTotal",
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 18,
+        "x": 0,
+        "y": 223
+      },
+      "hiddenSeries": false,
+      "id": 97,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.5.9",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "tomcat_jdbc_connections_total{instance=\"$node\",job=\"$job\"}/tomcat_jdbc_connections_max{instance=\"$node\",job=\"$job\"}",
+          "interval": "",
+          "legendFormat": "{{pool}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Tomcat JDBC Connections of Max Over Time",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "percentunit",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -4378,7 +4535,7 @@
         "h": 7,
         "w": 9,
         "x": 0,
-        "y": 215
+        "y": 231
       },
       "hiddenSeries": false,
       "id": 63,
@@ -4473,7 +4630,7 @@
         "h": 7,
         "w": 9,
         "x": 9,
-        "y": 215
+        "y": 231
       },
       "hiddenSeries": false,
       "id": 61,
@@ -4568,7 +4725,7 @@
         "h": 7,
         "w": 9,
         "x": 0,
-        "y": 222
+        "y": 238
       },
       "hiddenSeries": false,
       "id": 62,
@@ -4663,7 +4820,7 @@
         "h": 7,
         "w": 9,
         "x": 9,
-        "y": 222
+        "y": 238
       },
       "hiddenSeries": false,
       "id": 64,
@@ -4758,7 +4915,7 @@
         "h": 7,
         "w": 9,
         "x": 0,
-        "y": 229
+        "y": 245
       },
       "hiddenSeries": false,
       "id": 65,
@@ -4853,7 +5010,7 @@
         "h": 7,
         "w": 9,
         "x": 9,
-        "y": 229
+        "y": 245
       },
       "hiddenSeries": false,
       "id": 66,
@@ -4948,7 +5105,7 @@
         "h": 7,
         "w": 9,
         "x": 0,
-        "y": 236
+        "y": 252
       },
       "hiddenSeries": false,
       "id": 67,
@@ -5043,7 +5200,7 @@
         "h": 7,
         "w": 9,
         "x": 9,
-        "y": 236
+        "y": 252
       },
       "hiddenSeries": false,
       "id": 68,
@@ -5138,7 +5295,7 @@
         "h": 7,
         "w": 9,
         "x": 0,
-        "y": 243
+        "y": 259
       },
       "hiddenSeries": false,
       "id": 69,
@@ -5233,7 +5390,7 @@
         "h": 7,
         "w": 9,
         "x": 9,
-        "y": 243
+        "y": 259
       },
       "hiddenSeries": false,
       "id": 70,
@@ -5328,7 +5485,7 @@
         "h": 7,
         "w": 9,
         "x": 0,
-        "y": 250
+        "y": 266
       },
       "hiddenSeries": false,
       "id": 71,
@@ -5445,7 +5602,7 @@
         "h": 8,
         "w": 18,
         "x": 0,
-        "y": 257
+        "y": 273
       },
       "id": 72,
       "options": {
@@ -5543,7 +5700,7 @@
         "h": 8,
         "w": 18,
         "x": 0,
-        "y": 265
+        "y": 281
       },
       "id": 73,
       "options": {
@@ -5603,7 +5760,7 @@
         "h": 8,
         "w": 9,
         "x": 0,
-        "y": 273
+        "y": 289
       },
       "hiddenSeries": false,
       "id": 75,
@@ -5700,7 +5857,7 @@
         "h": 8,
         "w": 9,
         "x": 9,
-        "y": 273
+        "y": 289
       },
       "hiddenSeries": false,
       "id": 76,
@@ -5797,7 +5954,7 @@
         "h": 8,
         "w": 9,
         "x": 0,
-        "y": 281
+        "y": 297
       },
       "hiddenSeries": false,
       "id": 77,
@@ -5894,7 +6051,7 @@
         "h": 8,
         "w": 9,
         "x": 9,
-        "y": 281
+        "y": 297
       },
       "hiddenSeries": false,
       "id": 85,
@@ -6047,5 +6204,5 @@
   "timezone": "",
   "title": "Tomcat Exporter",
   "uid": "DVWnyqH7z",
-  "version": 279
+  "version": 284
 }
