@@ -70,7 +70,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1645625428207,
+  "iteration": 1645625428212,
   "links": [],
   "panels": [
     {
@@ -1168,7 +1168,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "tomcat_threads_total{hostname=\"bannertcssbcvlx203\"}/tomcat_threads_max{hostname=\"bannertcssbcvlx203\"}",
+          "expr": "tomcat_threads_total{instance=\"$node\",job=\"$job\"}/tomcat_threads_max{instance=\"$node\",job=\"$job\"}",
           "instant": true,
           "interval": "",
           "legendFormat": "{{name}}",
@@ -1228,7 +1228,7 @@
       "targets": [
         {
           "exemplar": true,
-          "expr": "tomcat_threads_total{hostname=\"bannertcssbcvlx203\"}/tomcat_threads_max{hostname=\"bannertcssbcvlx203\"}",
+          "expr": "tomcat_threads_total{instance=\"$node\",job=\"$job\"}/tomcat_threads_max{instance=\"$node\",job=\"$job\"}",
           "interval": "",
           "legendFormat": "{{name}}",
           "refId": "A"
@@ -1334,10 +1334,20 @@
           "interval": "",
           "legendFormat": "active {{name}}",
           "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "tomcat_threads_max{instance=\"$node\",job=\"$job\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "max {{name}}",
+          "refId": "C"
         }
       ],
       "thresholds": [],
+      "timeFrom": null,
       "timeRegions": [],
+      "timeShift": null,
       "title": "Tomcat Threads",
       "tooltip": {
         "shared": true,
@@ -6037,5 +6047,5 @@
   "timezone": "",
   "title": "Tomcat Exporter",
   "uid": "DVWnyqH7z",
-  "version": 278
+  "version": 279
 }
