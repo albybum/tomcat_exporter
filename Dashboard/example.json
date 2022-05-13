@@ -70,7 +70,7 @@
   "gnetId": null,
   "graphTooltip": 1,
   "id": null,
-  "iteration": 1645642553900,
+  "iteration": 1652456059453,
   "links": [],
   "panels": [
     {
@@ -1105,7 +1105,7 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "value_and_name"
       },
       "pluginVersion": "7.5.9",
       "targets": [
@@ -6197,12 +6197,12 @@
     ]
   },
   "time": {
-    "from": "now-2d",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {},
   "timezone": "",
   "title": "Tomcat Exporter",
   "uid": "DVWnyqH7z",
-  "version": 284
+  "version": 285
 }
